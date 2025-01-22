@@ -1,0 +1,56 @@
+syntax = "proto3";
+
+service AgentManager {
+  rpc SimulateAgent (SimulateAgentRequest) returns (SimulateAgentResponse);
+  rpc StartAgent (StartAgentRequest) returns (StartAgentResponse);
+  rpc StopAgent (StopAgentRequest) returns (StopAgentResponse);
+  rpc GetAgentStatus (GetAgentStatusRequest) returns (AgentStatus);
+}
+
+
+enum SimulateAction {
+  TWEET = 0;
+  REPLY = 1;
+}
+
+message SimulateAgentRequest {
+  string character = 1;
+  optional string tweet = 2;
+  SimulateAction action = 3;
+}
+
+message SimulateAgentResponse {
+  string response = 1;
+}
+
+message TwitterClient {
+  string username = 1;
+  string token = 2;
+  string secret = 3;
+}
+
+message StartAgentRequest {
+  string character = 1; // JSON string representing AI character
+  TwitterClient twitter = 2;
+}
+
+message StartAgentResponse {
+  string pid = 1;
+}
+
+message StopAgentRequest {
+  string pid = 1;
+}
+
+message StopAgentResponse {
+  bool success = 1;
+}
+
+message GetAgentStatusRequest {
+  string pid = 1;
+}
+
+message AgentStatus {
+  string pid = 1;
+  string status = 2; // e.g., "running", "stopped"
+}

@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "outDir": "./dist",
+    "resolveJsonModule": true,
+    "target": "ES2021",
+    "moduleResolution": "Bundler",
+    "emitDecoratorMetadata": true,
+    "module": "ESNext",
+    "typeRoots": ["./node_modules/@types"],
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "strictPropertyInitialization": false,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
+}

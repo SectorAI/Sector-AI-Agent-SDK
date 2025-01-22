@@ -1,0 +1,47 @@
+{
+  "name": "agent-aa",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "src/server.ts",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "dev:agent": "tsx src/agent.ts",
+    "build": "tsc --noEmit && swc src --out-dir dist && cp -r proto dist/",
+    "start": "node dist/src/server.js",
+    "generate:proto": "buf generate"
+  },
+  "dependencies": {
+    "@ai16z/adapter-sqlite": "0.1.4-alpha.3",
+    "@bufbuild/protobuf": "^2.2.3",
+    "@elizaos/adapter-postgres": "^0.1.7",
+    "@elizaos/core": "^0.1.7",
+    "@grpc/grpc-js": "^1.12.5",
+    "@grpc/proto-loader": "^0.7.13",
+    "@huggingface/transformers": "3.0.2",
+    "@langchain/core": "^0.3.27",
+    "@tavily/core": "^0.0.2",
+    "agent-twitter-client": "^0.0.18",
+    "axios": "^1.7.3",
+    "better-sqlite3": "^11.7.0",
+    "child_process": "^1.0.2",
+    "dotenv": "^16.4.5",
+    "joi": "^17.13.3",
+    "lodash": "^4.17.21",
+    "nanoid": "3.3.7",
+    "pg": "^8.13.1",
+    "sharp": "0.33.5",
+    "twitter-api-v2": "^1.19.0"
+  },
+  "devDependencies": {
+    "@bufbuild/buf": "^1.48.0",
+    "@bufbuild/protoc-gen-es": "^2.2.3",
+    "@swc/cli": "^0.4.0",
+    "@swc/core": "^1.7.12",
+    "@types/lodash": "^4.17.7",
+    "@types/node": "^22.1.0",
+    "prettier": "^3.3.3",
+    "tsx": "^4.17.0",
+    "typescript": "^5.5.4"
+  }
+}
